@@ -8,6 +8,7 @@ keras = "*"
 tensorflow = "*"
 setuptools = "*"
 wheel = "*"
+twine = "*"
 
 [dev-packages]
 
