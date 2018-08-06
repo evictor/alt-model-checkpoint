@@ -1,11 +1,11 @@
 from unittest import TestCase
 from unittest.mock import Mock
-from submodel_checkpoint import SubmodelCheckpoint
+from alt_model_checkpoint import AltModelCheckpoint
 
 
-class SubmodelCheckpointTest(TestCase):
+class AltModelCheckpointTest(TestCase):
     def test_kwargs_pass_through(self):
-        callback = SubmodelCheckpoint('path/to/model.hdf5', None, monitor='foobar')
+        callback = AltModelCheckpoint('path/to/model.hdf5', None, monitor='foobar')
         self.assertEqual(callback.filepath, 'path/to/model.hdf5')
         self.assertEqual(callback.monitor, 'foobar')
 
@@ -15,7 +15,7 @@ class SubmodelCheckpointTest(TestCase):
         model2 = Mock()
         model2.save = Mock()
 
-        callback = SubmodelCheckpoint('path/to/model.hdf5', model2)
+        callback = AltModelCheckpoint('path/to/model.hdf5', model2)
         callback.model = model1
 
         callback.on_epoch_end(42)

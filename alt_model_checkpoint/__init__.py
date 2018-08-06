@@ -1,9 +1,7 @@
-name = 'submodel-checkpoint'
-
 from keras.callbacks import ModelCheckpoint
 
 
-class SubmodelCheckpoint(ModelCheckpoint):
+class AltModelCheckpoint(ModelCheckpoint):
     def __init__(self, filepath, alternate_model, **kwargs):
         """
         Additional keyword args are passed to ModelCheckpoint; see those docs for information on what args are accepted.

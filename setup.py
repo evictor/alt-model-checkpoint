@@ -1,11 +1,10 @@
 import setuptools
-from submodel_checkpoint import name
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name=name,
+    name='alt-model-checkpoint',
     version='1.0.0',
     author='Ezekiel Victor',
     author_email='zekevictor@gmail.com',
@@ -13,7 +12,7 @@ setuptools.setup(
                 ' (often submodel of a multi-GPU model).',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/TextpertAi/submodel-checkpoint',
+    url='https://github.com/TextpertAi/alt-model-checkpoint',
     packages=setuptools.find_packages(),
     classifiers=(
         'Programming Language :: Python :: 3',
