@@ -33,7 +33,7 @@ gpu_model.fit(..., callbacks=[
 ])
 ```
 
-## Environment setup
+## Dev environment setup
 
 1. Install [pipenv](https://docs.pipenv.org/install/).
 2. Run `make`.
