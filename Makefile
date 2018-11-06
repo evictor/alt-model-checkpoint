@@ -6,6 +6,7 @@ test:
 	pipenv run python3 -m unittest
 
 dist-build:
+	rm -rf dist/*
 	pipenv run python3 setup.py sdist bdist_wheel
 
 dist-upload: dist-build
