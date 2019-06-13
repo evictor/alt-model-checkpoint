@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='alt-model-checkpoint',
-    version='1.0.1',
+    version='1.0.2',
     author='Ezekiel Victor',
     author_email='zekevictor@gmail.com',
     description='An adapter callback for Keras ModelCheckpoint that allows checkpointing an alternate model'
