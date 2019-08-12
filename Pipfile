@@ -4,13 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-keras = "*"
-tensorflow = "*"
+
+[dev-packages]
+tensorflow = "~=1.13.0"
 setuptools = "*"
 wheel = "*"
 twine = "*"
-
-[dev-packages]
+keras = "~=2.2.4"
 
 [requires]
 python_version = "3.6"

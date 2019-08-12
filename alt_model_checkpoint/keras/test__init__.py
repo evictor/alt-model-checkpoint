@@ -1,9 +1,15 @@
 from unittest import TestCase
 from unittest.mock import Mock
-from alt_model_checkpoint import AltModelCheckpoint
+
+import keras
+
+from alt_model_checkpoint.keras import AltModelCheckpoint
 
 
 class AltModelCheckpointTest(TestCase):
+    def test_base_cls(self):
+        self.assertIsInstance(AltModelCheckpoint('foobar', None), keras.callbacks.ModelCheckpoint)
+
     def test_kwargs_pass_through(self):
         callback = AltModelCheckpoint('path/to/model.hdf5', None, monitor='foobar')
         self.assertEqual(callback.filepath, 'path/to/model.hdf5')
