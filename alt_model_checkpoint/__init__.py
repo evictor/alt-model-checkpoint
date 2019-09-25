@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, Type
 
 # Keep for type hints/IDE
 # noinspection PyUnreachableCode
@@ -7,8 +7,8 @@ if False:
     import keras
 
 
-def _define_alt_model_checkpoint(parent_cls: Union['tensorflow.keras.callbacks.ModelCheckpoint',
-                                                   'keras.callbacks.ModelCheckpoint']):
+def _define_alt_model_checkpoint(parent_cls: Union[Type['tensorflow.keras.callbacks.ModelCheckpoint'],
+                                                   Type['keras.callbacks.ModelCheckpoint']]):
     class AltModelCheckpoint(parent_cls):
         def __init__(self, filepath, alternate_model, **kwargs):
             """
