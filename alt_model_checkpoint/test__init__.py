@@ -1,4 +1,5 @@
 import unittest
+from typing import Callable, Union
 from unittest import TestCase
 from unittest.mock import Mock
 
@@ -6,18 +7,19 @@ from unittest.mock import Mock
 class CommonAltModelCheckpointTests(TestCase):
     cls = None
 
-    def test_kwargs_pass_through(self):
+    def run(self, *args, **kwargs) -> Union[TestCase, Callable]:
+        # Don't run tests on naked base class
         if type(self) is CommonAltModelCheckpointTests:
             return unittest.skip('base class test skip')
 
+        return super().run(*args, **kwargs)
+
+    def test_kwargs_pass_through(self):
         callback = self.cls('path/to/model.hdf5', None, monitor='foobar')
         self.assertEqual(callback.filepath, 'path/to/model.hdf5')
         self.assertEqual(callback.monitor, 'foobar')
 
     def test_on_epoch_end(self):
-        if type(self) is CommonAltModelCheckpointTests:
-            return unittest.skip('base class test skip')
-
         model1 = Mock()
 
         model2 = Mock()
