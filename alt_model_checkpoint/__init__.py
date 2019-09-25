@@ -12,12 +12,13 @@ def _define_alt_model_checkpoint(parent_cls: Union['tensorflow.keras.callbacks.M
     class AltModelCheckpoint(parent_cls):
         def __init__(self, filepath, alternate_model, **kwargs):
             """
-            Additional keyword args are passed to ModelCheckpoint; see those docs for information on what args are accepted.
+            Additional keyword args are passed to ModelCheckpoint; see those docs for information on what args are
+            accepted.
 
             :param filepath:
-            :param alternate_model: Keras model to save instead of the default. This is used especially when training multi-
-                                    gpu models built with Keras multi_gpu_model(). In that case, you would pass the original
-                                    "template model" to be saved each checkpoint.
+            :param alternate_model: Keras model to save instead of the default. This is used especially when training
+                                    multi-gpu models built with Keras multi_gpu_model(). In that case, you would pass
+                                    the original "template model" to be saved each checkpoint.
             :param kwargs:          Passed to ModelCheckpoint.
             """
 
