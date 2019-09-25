@@ -1,31 +1,13 @@
-from unittest import TestCase
-from unittest.mock import Mock
-
 import keras
 
 from alt_model_checkpoint.keras import AltModelCheckpoint
+from alt_model_checkpoint.test__init__ import CommonAltModelCheckpointTests
 
 
-class AltModelCheckpointTest(TestCase):
+class KerasAltModelCheckpointTest(CommonAltModelCheckpointTests):
+    def setUp(self):
+        # noinspection PyAttributeOutsideInit
+        self.cls = AltModelCheckpoint
+
     def test_base_cls(self):
         self.assertIsInstance(AltModelCheckpoint('foobar', None), keras.callbacks.ModelCheckpoint)
-
-    def test_kwargs_pass_through(self):
-        callback = AltModelCheckpoint('path/to/model.hdf5', None, monitor='foobar')
-        self.assertEqual(callback.filepath, 'path/to/model.hdf5')
-        self.assertEqual(callback.monitor, 'foobar')
-
-    def test_on_epoch_end(self):
-        model1 = Mock()
-
-        model2 = Mock()
-        model2.save = Mock()
-
-        callback = AltModelCheckpoint('path/to/model.hdf5', model2)
-        callback.model = model1
-
-        callback.on_epoch_end(42)
-        self.assertIs(callback.model, model1, 'original model is restored')
-
-        # model2 saved
-        model2.save.assert_called_once_with('path/to/model.hdf5', overwrite=True)
