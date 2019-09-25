@@ -1,3 +1,14 @@
+# 2.0.0
+
+Semantic versioning can't be maintained while trying to track version numbers to TF; that didn't last long. :)
+
+This is a major version bump because the default behavior changes with introduction of `inherit_optimizer` arg to
+`AltModelCheckpoint(...)`. When `inherit_optimizer` is `True` (the default), the optimizer of the base model (e.g. the
+multi-gpu model) will be saved with the alternate model so training can be resumed later from the saved file.
+
+Pass `inherit_optimizer=False` to preserve old behavior (save alternate model optimizer as-is, which is not typically
+useful for the common multi-gpu model use case of this library).
+
 # 1.13.0
 
 * **BREAKING:** Tensorflow/Keras dependencies not enforced since user can use either

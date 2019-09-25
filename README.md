@@ -42,6 +42,23 @@ gpu_model.fit(..., callbacks=[
 ])
 ```
 
+## Constructor args
+
+### filepath
+
+Model save file path; see [underlying ModelCheckpoint docs](https://keras.io/callbacks/#modelcheckpoint) for details.
+
+### alternate_model
+
+Keras model to save instead of the default. This is used especially when training multi-gpu models built with Keras
+multi_gpu_model(). In that case, you would pass the original "template model" to be saved each checkpoint.
+
+### inherit_optimizer
+
+If TRUE (default), saves the optimizer of the base model (e.g. a multi-gpu model) with the alternate model. This is
+necessary if you want to be able to resume training on a saved alternate model. If FALSE, the alternate model's
+optimizer will be saved as-is.
+
 ## Dev environment setup
 
 1. Install [pipenv](https://docs.pipenv.org/install/).
