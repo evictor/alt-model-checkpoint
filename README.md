@@ -59,6 +59,10 @@ If TRUE (default), saves the optimizer of the base model (e.g. a multi-gpu model
 necessary if you want to be able to resume training on a saved alternate model. If FALSE, the alternate model's
 optimizer will be saved as-is.
 
+### *args, **kwargs
+
+These are passed as-is to the underlying [ModelCheckpoint](https://keras.io/callbacks/#modelcheckpoint) constructor.
+
 ## Dev environment setup
 
 1. Install [pipenv](https://docs.pipenv.org/install/).
