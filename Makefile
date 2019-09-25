@@ -4,7 +4,9 @@ default:
 test-build:
 	pipenv install --dev
 
-test: test-build
+test: test-build test-only
+
+test-only:
 	cd alt_model_checkpoint
 	pipenv run python3 -m unittest
 
