@@ -1,3 +1,7 @@
+# 2.0.1
+
+Fix Keras import from Tensorflow
+
 # 2.0.0
 
 Semantic versioning can't be maintained while trying to track version numbers to TF; that didn't last long. :)
