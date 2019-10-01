@@ -1,3 +1,7 @@
+# 2.0.2
+
+Remove problematic type hints
+
 # 2.0.1
 
 Fix Keras import from Tensorflow

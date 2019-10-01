@@ -1,14 +1,9 @@
-from typing import Union, Type
+def _define_alt_model_checkpoint(parent_cls):
+    """
+    :param parent_cls: The ModelCheckpoint class from Keras, or from the Keras bundled with Tensorflow
+    :return:
+    """
 
-# Keep for type hints/IDE
-# noinspection PyUnreachableCode
-if False:
-    import tensorflow as tf
-    import keras
-
-
-def _define_alt_model_checkpoint(parent_cls: Union[Type['tf.keras.callbacks.ModelCheckpoint'],
-                                                   Type['keras.callbacks.ModelCheckpoint']]):
     class AltModelCheckpoint(parent_cls):
         def __init__(self, filepath, alternate_model, inherit_optimizer: bool = True, **kwargs):
             """
