@@ -33,9 +33,14 @@ from alt_model_checkpoint.keras import AltModelCheckpoint
 from keras.models import Model
 from keras.utils import multi_gpu_model
 
+def compile_model(m):
+    """Implement with your model compile logic; both base and GPU models should be compiled identically"""
+    m.compile(...)
+
 base_model = Model(...)
 gpu_model = multi_gpu_model(base_model)
-gpu_model.compile(...)
+compile_model(base_model)
+compile_model(gpu_model)
 
 gpu_model.fit(..., callbacks=[
     AltModelCheckpoint('save/path/for/model.hdf5', base_model)
