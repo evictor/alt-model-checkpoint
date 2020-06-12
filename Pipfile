@@ -11,6 +11,3 @@ setuptools = "*"
 wheel = "*"
 twine = "*"
 keras = "~=2.2.4"
-
-[requires]
-python_version = "3.6"
