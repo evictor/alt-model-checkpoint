@@ -21,11 +21,11 @@ class CommonAltModelCheckpointTests(TestCase):
         self.assertEqual(callback.monitor, 'foobar')
 
     def test_on_epoch_end(self):
-        multigpu_model = Mock()
+        multigpu_model = Mock(_in_multi_worker_mode=lambda: False)
         multigpu_model_optimizer = Mock()
         multigpu_model.optimizer = multigpu_model_optimizer
 
-        template_model = Mock()
+        template_model = Mock(_in_multi_worker_mode=lambda: False)
 
         # noinspection PyUnusedLocal
         def save_impl_mock(*args, **kwargs):
@@ -47,11 +47,11 @@ class CommonAltModelCheckpointTests(TestCase):
         template_model.save.assert_called_once_with('path/to/model.hdf5', overwrite=True)
 
     def test_can_opt_out_of_inherited_optimizer(self):
-        multigpu_model = Mock()
+        multigpu_model = Mock(_in_multi_worker_mode=lambda: False)
         multigpu_model_optimizer = Mock()
         multigpu_model.optimizer = multigpu_model_optimizer
 
-        template_model = Mock()
+        template_model = Mock(_in_multi_worker_mode=lambda: False)
         template_model_optimizer = Mock()
         template_model.optimizer = template_model_optimizer
 

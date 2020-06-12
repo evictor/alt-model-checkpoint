@@ -6,8 +6,8 @@ name = "pypi"
 [packages]
 
 [dev-packages]
-tensorflow = "~=1.13.0"
+tensorflow = ">=1.15.2"
 setuptools = "*"
 wheel = "*"
 twine = "*"
-keras = "~=2.2.4"
+keras = ">=2.3.1"
