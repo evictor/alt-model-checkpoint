@@ -1,3 +1,9 @@
+# 2.0.3
+
+Dev/test dep upgrades:
+* TF 1.13.2 => 1.15.2
+* Keras 2.2.4 => 2.3.1
+
 # 2.0.2
 
 Remove problematic type hints
